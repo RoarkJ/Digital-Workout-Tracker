@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TrainingCenterDatabase
+  xsi:schemaLocation="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2 http://www.garmin.com/xmlschemas/TrainingCenterDatabasev2.xsd"
+  xmlns:ns5="http://www.garmin.com/xmlschemas/ActivityGoals/v1"
+  xmlns:ns3="http://www.garmin.com/xmlschemas/ActivityExtension/v2"
+  xmlns:ns2="http://www.garmin.com/xmlschemas/UserProfile/v2"
+  xmlns="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns4="http://www.garmin.com/xmlschemas/ProfileExtension/v1">
+  <Activities>
+    <Activity Sport="Running">
+      <Id>2009-05-07T12:19:38.000Z</Id>
+      <Lap StartTime="2009-05-07T12:19:38.000Z">
+        <TotalTimeSeconds>0.0</TotalTimeSeconds>
+        <DistanceMeters>1609.0</DistanceMeters>
+        <MaximumSpeed>4.1918354</MaximumSpeed>
+        <Calories>168</Calories>
+        <AverageHeartRateBpm>
+          <Value>158</Value>
+        </AverageHeartRateBpm>
+        <MaximumHeartRateBpm>
+          <Value>178</Value>
+        </MaximumHeartRateBpm>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Extensions>
+          <ns3:LX>
+            <ns3:AvgSpeed>3.216841936902715</ns3:AvgSpeed>
+          </ns3:LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2009-05-07T12:27:59.000Z">
+        <TotalTimeSeconds>0.0</TotalTimeSeconds>
+        <DistanceMeters>1609.0</DistanceMeters>
+        <MaximumSpeed>3.1837454</MaximumSpeed>
+        <Calories>169</Calories>
+        <AverageHeartRateBpm>
+          <Value>161</Value>
+        </AverageHeartRateBpm>
+        <MaximumHeartRateBpm>
+          <Value>167</Value>
+        </MaximumHeartRateBpm>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Extensions>
+          <ns3:LX>
+            <ns3:AvgSpeed>2.832497139336326</ns3:AvgSpeed>
+          </ns3:LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2009-05-07T12:37:27.000Z">
+        <TotalTimeSeconds>0.0</TotalTimeSeconds>
+        <DistanceMeters>1609.0</DistanceMeters>
+        <MaximumSpeed>3.8015728</MaximumSpeed>
+        <Calories>168</Calories>
+        <AverageHeartRateBpm>
+          <Value>163</Value>
+        </AverageHeartRateBpm>
+        <MaximumHeartRateBpm>
+          <Value>169</Value>
+        </MaximumHeartRateBpm>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Extensions>
+          <ns3:LX>
+            <ns3:AvgSpeed>3.029504245824782</ns3:AvgSpeed>
+          </ns3:LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2009-05-07T12:46:19.000Z">
+        <TotalTimeSeconds>0.0</TotalTimeSeconds>
+        <DistanceMeters>1609.0</DistanceMeters>
+        <MaximumSpeed>4.3123608</MaximumSpeed>
+        <Calories>168</Calories>
+        <AverageHeartRateBpm>
+          <Value>160</Value>
+        </AverageHeartRateBpm>
+        <MaximumHeartRateBpm>
+          <Value>166</Value>
+        </MaximumHeartRateBpm>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Extensions>
+          <ns3:LX>
+            <ns3:AvgSpeed>3.3502686045058927</ns3:AvgSpeed>
+          </ns3:LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2009-05-07T12:54:19.000Z">
+        <TotalTimeSeconds>0.0</TotalTimeSeconds>
+        <DistanceMeters>1609.0</DistanceMeters>
+        <MaximumSpeed>4.803215</MaximumSpeed>
+        <Calories>168</Calories>
+        <AverageHeartRateBpm>
+          <Value>160</Value>
+        </AverageHeartRateBpm>
+        <MaximumHeartRateBpm>
+          <Value>165</Value>
+        </MaximumHeartRateBpm>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Extensions>
+          <ns3:LX>
+            <ns3:AvgSpeed>3.855739276300024</ns3:AvgSpeed>
+          </ns3:LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2009-05-07T13:01:16.000Z">
+        <TotalTimeSeconds>0.0</TotalTimeSeconds>
+        <DistanceMeters>1609.0</DistanceMeters>
+        <MaximumSpeed>4.3084569</MaximumSpeed>
+        <Calories>164</Calories>
+        <AverageHeartRateBpm>
+          <Value>158</Value>
+        </AverageHeartRateBpm>
+        <MaximumHeartRateBpm>
+          <Value>167</Value>
+        </MaximumHeartRateBpm>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Extensions>
+          <ns3:LX>
+            <ns3:AvgSpeed>3.493497188266713</ns3:AvgSpeed>
+          </ns3:LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2009-05-07T13:09:21.000Z">
+        <TotalTimeSeconds>0.0</TotalTimeSeconds>
+        <DistanceMeters>11.94</DistanceMeters>
+        <MaximumSpeed>3.8632963</MaximumSpeed>
+        <Calories>0</Calories>
+        <AverageHeartRateBpm>
+          <Value>167</Value>
+        </AverageHeartRateBpm>
+        <MaximumHeartRateBpm>
+          <Value>167</Value>
+        </MaximumHeartRateBpm>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Extensions>
+          <ns3:LX>
+            <ns3:AvgSpeed>3.7890625079365075</ns3:AvgSpeed>
+          </ns3:LX>
+        </Extensions>
+      </Lap>
+      <Creator xsi:type="Device_t">
+        <Name>Garmin Forerunner 205</Name>
+        <UnitId>3391501467</UnitId>
+        <ProductID>484</ProductID>
+        <Version>
+          <VersionMajor>2</VersionMajor>
+          <VersionMinor>90</VersionMinor>
+          <BuildMajor>0</BuildMajor>
+          <BuildMinor>0</BuildMinor>
+        </Version>
+      </Creator>
+    </Activity>
+  </Activities>
+  <Author xsi:type="Application_t">
+    <Name>Connect Api</Name>
+    <Build>
+      <Version>
+        <VersionMajor>0</VersionMajor>
+        <VersionMinor>0</VersionMinor>
+        <BuildMajor>0</BuildMajor>
+        <BuildMinor>0</BuildMinor>
+      </Version>
+    </Build>
+    <LangID>en</LangID>
+    <PartNumber>006-D2449-00</PartNumber>
+  </Author>
+</TrainingCenterDatabase>
