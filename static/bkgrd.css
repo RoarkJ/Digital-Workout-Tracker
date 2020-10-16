@@ -1,0 +1,30 @@
+body, html {
+  height: 100%;
+}
+
+.hero {
+    position: relative;
+    height: 220px;
+    padding: 20px;
+    margin: 0;
+    background: black;
+    background-image: url("../images/edge1030.jpg");
+    /* background-attachment: fixed; */
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    text-align: center;
+  }
+
+.stay {
+    position: fixed;
+}
+
+.pad{
+    margin-top: 50px;
+}
+
+.vh {
+
+    min-height: 100vh;
+}
