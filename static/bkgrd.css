@@ -2,9 +2,13 @@ body, html {
   height: 100%;
 }
 
+#map-id {
+  height: 400px;
+}
+
 .hero {
     position: relative;
-    height: 250px;
+    height: 220px;
     padding: 20px;
     margin: 0;
     background: black;
