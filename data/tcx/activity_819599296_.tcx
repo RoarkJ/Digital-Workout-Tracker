@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TrainingCenterDatabase
+  xsi:schemaLocation="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2 http://www.garmin.com/xmlschemas/TrainingCenterDatabasev2.xsd"
+  xmlns:ns5="http://www.garmin.com/xmlschemas/ActivityGoals/v1"
+  xmlns:ns3="http://www.garmin.com/xmlschemas/ActivityExtension/v2"
+  xmlns:ns2="http://www.garmin.com/xmlschemas/UserProfile/v2"
+  xmlns="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns4="http://www.garmin.com/xmlschemas/ProfileExtension/v1">
+  <Activities>
+    <Activity Sport="Biking">
+      <Id>2012-04-25T19:19:06.000Z</Id>
+      <Lap StartTime="2012-04-25T19:19:06.000Z">
+        <TotalTimeSeconds>0.0</TotalTimeSeconds>
+        <DistanceMeters>1609.0</DistanceMeters>
+        <MaximumSpeed>4.2963572</MaximumSpeed>
+        <Calories>162</Calories>
+        <AverageHeartRateBpm>
+          <Value>152</Value>
+        </AverageHeartRateBpm>
+        <MaximumHeartRateBpm>
+          <Value>168</Value>
+        </MaximumHeartRateBpm>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Extensions>
+          <ns3:LX>
+            <ns3:AvgSpeed>1.9740877972173831</ns3:AvgSpeed>
+          </ns3:LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2012-04-25T19:32:42.000Z">
+        <TotalTimeSeconds>0.0</TotalTimeSeconds>
+        <DistanceMeters>1609.0</DistanceMeters>
+        <MaximumSpeed>9.3535175</MaximumSpeed>
+        <Calories>209</Calories>
+        <AverageHeartRateBpm>
+          <Value>159</Value>
+        </AverageHeartRateBpm>
+        <MaximumHeartRateBpm>
+          <Value>173</Value>
+        </MaximumHeartRateBpm>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Extensions>
+          <ns3:LX>
+            <ns3:AvgSpeed>2.168872833149112</ns3:AvgSpeed>
+          </ns3:LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2012-04-25T19:45:04.000Z">
+        <TotalTimeSeconds>0.0</TotalTimeSeconds>
+        <DistanceMeters>1609.0</DistanceMeters>
+        <MaximumSpeed>3.7579675</MaximumSpeed>
+        <Calories>305</Calories>
+        <AverageHeartRateBpm>
+          <Value>170</Value>
+        </AverageHeartRateBpm>
+        <MaximumHeartRateBpm>
+          <Value>187</Value>
+        </MaximumHeartRateBpm>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Extensions>
+          <ns3:LX>
+            <ns3:AvgSpeed>1.6470130614584613</ns3:AvgSpeed>
+          </ns3:LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2012-04-25T20:01:20.000Z">
+        <TotalTimeSeconds>0.0</TotalTimeSeconds>
+        <DistanceMeters>1609.0</DistanceMeters>
+        <MaximumSpeed>5.9776397</MaximumSpeed>
+        <Calories>117</Calories>
+        <AverageHeartRateBpm>
+          <Value>156</Value>
+        </AverageHeartRateBpm>
+        <MaximumHeartRateBpm>
+          <Value>183</Value>
+        </MaximumHeartRateBpm>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Extensions>
+          <ns3:LX>
+            <ns3:AvgSpeed>2.2735622438886534</ns3:AvgSpeed>
+          </ns3:LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2012-04-25T20:20:02.000Z">
+        <TotalTimeSeconds>0.0</TotalTimeSeconds>
+        <DistanceMeters>1609.0</DistanceMeters>
+        <MaximumSpeed>6.898437500000001</MaximumSpeed>
+        <Calories>31</Calories>
+        <AverageHeartRateBpm>
+          <Value>127</Value>
+        </AverageHeartRateBpm>
+        <MaximumHeartRateBpm>
+          <Value>142</Value>
+        </MaximumHeartRateBpm>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Extensions>
+          <ns3:LX>
+            <ns3:AvgSpeed>3.3621698428619196</ns3:AvgSpeed>
+          </ns3:LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2012-04-25T20:28:01.000Z">
+        <TotalTimeSeconds>0.0</TotalTimeSeconds>
+        <DistanceMeters>1609.0</DistanceMeters>
+        <MaximumSpeed>7.1941872</MaximumSpeed>
+        <Calories>52</Calories>
+        <AverageHeartRateBpm>
+          <Value>126</Value>
+        </AverageHeartRateBpm>
+        <MaximumHeartRateBpm>
+          <Value>148</Value>
+        </MaximumHeartRateBpm>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Extensions>
+          <ns3:LX>
+            <ns3:AvgSpeed>2.94053145217296</ns3:AvgSpeed>
+          </ns3:LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2012-04-25T20:37:08.000Z">
+        <TotalTimeSeconds>0.0</TotalTimeSeconds>
+        <DistanceMeters>15.06</DistanceMeters>
+        <MaximumSpeed>2.3221703</MaximumSpeed>
+        <Calories>5</Calories>
+        <AverageHeartRateBpm>
+          <Value>116</Value>
+        </AverageHeartRateBpm>
+        <MaximumHeartRateBpm>
+          <Value>132</Value>
+        </MaximumHeartRateBpm>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Extensions>
+          <ns3:LX>
+            <ns3:AvgSpeed>0.14013444744186046</ns3:AvgSpeed>
+          </ns3:LX>
+        </Extensions>
+      </Lap>
+      <Creator xsi:type="Device_t">
+        <Name>Garmin Forerunner 305</Name>
+        <UnitId>3391501467</UnitId>
+        <ProductID>484</ProductID>
+        <Version>
+          <VersionMajor>2</VersionMajor>
+          <VersionMinor>90</VersionMinor>
+          <BuildMajor>0</BuildMajor>
+          <BuildMinor>0</BuildMinor>
+        </Version>
+      </Creator>
+    </Activity>
+  </Activities>
+  <Author xsi:type="Application_t">
+    <Name>Connect Api</Name>
+    <Build>
+      <Version>
+        <VersionMajor>0</VersionMajor>
+        <VersionMinor>0</VersionMinor>
+        <BuildMajor>0</BuildMajor>
+        <BuildMinor>0</BuildMinor>
+      </Version>
+    </Build>
+    <LangID>en</LangID>
+    <PartNumber>006-D2449-00</PartNumber>
+  </Author>
+</TrainingCenterDatabase>

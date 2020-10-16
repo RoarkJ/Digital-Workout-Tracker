@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TrainingCenterDatabase
+  xsi:schemaLocation="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2 http://www.garmin.com/xmlschemas/TrainingCenterDatabasev2.xsd"
+  xmlns:ns5="http://www.garmin.com/xmlschemas/ActivityGoals/v1"
+  xmlns:ns3="http://www.garmin.com/xmlschemas/ActivityExtension/v2"
+  xmlns:ns2="http://www.garmin.com/xmlschemas/UserProfile/v2"
+  xmlns="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns4="http://www.garmin.com/xmlschemas/ProfileExtension/v1">
+  <Activities>
+    <Activity Sport="Biking">
+      <Id>2009-05-18T02:15:21.000Z</Id>
+      <Lap StartTime="2009-05-18T02:15:21.000Z">
+        <TotalTimeSeconds>0.0</TotalTimeSeconds>
+        <DistanceMeters>1609.0</DistanceMeters>
+        <MaximumSpeed>10.163799299999999</MaximumSpeed>
+        <Calories>98</Calories>
+        <AverageHeartRateBpm>
+          <Value>127</Value>
+        </AverageHeartRateBpm>
+        <MaximumHeartRateBpm>
+          <Value>147</Value>
+        </MaximumHeartRateBpm>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Extensions>
+          <ns3:LX>
+            <ns3:AvgSpeed>6.568419333768778</ns3:AvgSpeed>
+          </ns3:LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2009-05-18T02:19:26.000Z">
+        <TotalTimeSeconds>0.0</TotalTimeSeconds>
+        <DistanceMeters>1609.0</DistanceMeters>
+        <MaximumSpeed>8.7252111</MaximumSpeed>
+        <Calories>80</Calories>
+        <AverageHeartRateBpm>
+          <Value>145</Value>
+        </AverageHeartRateBpm>
+        <MaximumHeartRateBpm>
+          <Value>154</Value>
+        </MaximumHeartRateBpm>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Extensions>
+          <ns3:LX>
+            <ns3:AvgSpeed>5.452019517484413</ns3:AvgSpeed>
+          </ns3:LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2009-05-18T02:24:21.000Z">
+        <TotalTimeSeconds>0.0</TotalTimeSeconds>
+        <DistanceMeters>1609.0</DistanceMeters>
+        <MaximumSpeed>10.464998199999998</MaximumSpeed>
+        <Calories>94</Calories>
+        <AverageHeartRateBpm>
+          <Value>139</Value>
+        </AverageHeartRateBpm>
+        <MaximumHeartRateBpm>
+          <Value>147</Value>
+        </MaximumHeartRateBpm>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Extensions>
+          <ns3:LX>
+            <ns3:AvgSpeed>6.189413755962456</ns3:AvgSpeed>
+          </ns3:LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2009-05-18T02:28:41.000Z">
+        <TotalTimeSeconds>0.0</TotalTimeSeconds>
+        <DistanceMeters>1609.0</DistanceMeters>
+        <MaximumSpeed>6.957515700000001</MaximumSpeed>
+        <Calories>78</Calories>
+        <AverageHeartRateBpm>
+          <Value>138</Value>
+        </AverageHeartRateBpm>
+        <MaximumHeartRateBpm>
+          <Value>145</Value>
+        </MaximumHeartRateBpm>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Extensions>
+          <ns3:LX>
+            <ns3:AvgSpeed>5.832457316852141</ns3:AvgSpeed>
+          </ns3:LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2009-05-18T02:33:17.000Z">
+        <TotalTimeSeconds>0.0</TotalTimeSeconds>
+        <DistanceMeters>1609.0</DistanceMeters>
+        <MaximumSpeed>14.6620293</MaximumSpeed>
+        <Calories>31</Calories>
+        <AverageHeartRateBpm>
+          <Value>141</Value>
+        </AverageHeartRateBpm>
+        <MaximumHeartRateBpm>
+          <Value>151</Value>
+        </MaximumHeartRateBpm>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Extensions>
+          <ns3:LX>
+            <ns3:AvgSpeed>10.088406796664367</ns3:AvgSpeed>
+          </ns3:LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2009-05-18T02:35:57.000Z">
+        <TotalTimeSeconds>0.0</TotalTimeSeconds>
+        <DistanceMeters>1609.0</DistanceMeters>
+        <MaximumSpeed>14.9002724</MaximumSpeed>
+        <Calories>56</Calories>
+        <AverageHeartRateBpm>
+          <Value>140</Value>
+        </AverageHeartRateBpm>
+        <MaximumHeartRateBpm>
+          <Value>163</Value>
+        </MaximumHeartRateBpm>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Extensions>
+          <ns3:LX>
+            <ns3:AvgSpeed>11.132636822804953</ns3:AvgSpeed>
+          </ns3:LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2009-05-18T02:38:21.000Z">
+        <TotalTimeSeconds>0.0</TotalTimeSeconds>
+        <DistanceMeters>1609.0</DistanceMeters>
+        <MaximumSpeed>15.4597893</MaximumSpeed>
+        <Calories>4</Calories>
+        <AverageHeartRateBpm>
+          <Value>140</Value>
+        </AverageHeartRateBpm>
+        <MaximumHeartRateBpm>
+          <Value>152</Value>
+        </MaximumHeartRateBpm>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Extensions>
+          <ns3:LX>
+            <ns3:AvgSpeed>14.364788858137667</ns3:AvgSpeed>
+          </ns3:LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2009-05-18T02:40:13.000Z">
+        <TotalTimeSeconds>0.0</TotalTimeSeconds>
+        <DistanceMeters>787.32</DistanceMeters>
+        <MaximumSpeed>15.1287098</MaximumSpeed>
+        <Calories>30</Calories>
+        <AverageHeartRateBpm>
+          <Value>147</Value>
+        </AverageHeartRateBpm>
+        <MaximumHeartRateBpm>
+          <Value>153</Value>
+        </MaximumHeartRateBpm>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Extensions>
+          <ns3:LX>
+            <ns3:AvgSpeed>13.315106808726535</ns3:AvgSpeed>
+          </ns3:LX>
+        </Extensions>
+      </Lap>
+      <Creator xsi:type="Device_t">
+        <Name>Garmin Forerunner 205</Name>
+        <UnitId>3391501467</UnitId>
+        <ProductID>484</ProductID>
+        <Version>
+          <VersionMajor>2</VersionMajor>
+          <VersionMinor>90</VersionMinor>
+          <BuildMajor>0</BuildMajor>
+          <BuildMinor>0</BuildMinor>
+        </Version>
+      </Creator>
+    </Activity>
+  </Activities>
+  <Author xsi:type="Application_t">
+    <Name>Connect Api</Name>
+    <Build>
+      <Version>
+        <VersionMajor>0</VersionMajor>
+        <VersionMinor>0</VersionMinor>
+        <BuildMajor>0</BuildMajor>
+        <BuildMinor>0</BuildMinor>
+      </Version>
+    </Build>
+    <LangID>en</LangID>
+    <PartNumber>006-D2449-00</PartNumber>
+  </Author>
+</TrainingCenterDatabase>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TrainingCenterDatabase
+  xsi:schemaLocation="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2 http://www.garmin.com/xmlschemas/TrainingCenterDatabasev2.xsd"
+  xmlns:ns5="http://www.garmin.com/xmlschemas/ActivityGoals/v1"
+  xmlns:ns3="http://www.garmin.com/xmlschemas/ActivityExtension/v2"
+  xmlns:ns2="http://www.garmin.com/xmlschemas/UserProfile/v2"
+  xmlns="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns4="http://www.garmin.com/xmlschemas/ProfileExtension/v1">
+  <Activities>
+    <Activity Sport="Biking">
+      <Id>2012-05-10T19:42:07.000Z</Id>
+      <Lap StartTime="2012-05-10T19:42:07.000Z">
+        <TotalTimeSeconds>0.0</TotalTimeSeconds>
+        <DistanceMeters>1609.0</DistanceMeters>
+        <MaximumSpeed>5.8079987</MaximumSpeed>
+        <Calories>157</Calories>
+        <AverageHeartRateBpm>
+          <Value>138</Value>
+        </AverageHeartRateBpm>
+        <MaximumHeartRateBpm>
+          <Value>166</Value>
+        </MaximumHeartRateBpm>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Extensions>
+          <ns3:LX>
+            <ns3:AvgSpeed>3.3887952822240943</ns3:AvgSpeed>
+          </ns3:LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2012-05-10T19:50:02.000Z">
+        <TotalTimeSeconds>0.0</TotalTimeSeconds>
+        <DistanceMeters>1609.0</DistanceMeters>
+        <MaximumSpeed>5.498414</MaximumSpeed>
+        <Calories>131</Calories>
+        <AverageHeartRateBpm>
+          <Value>162</Value>
+        </AverageHeartRateBpm>
+        <MaximumHeartRateBpm>
+          <Value>178</Value>
+        </MaximumHeartRateBpm>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Extensions>
+          <ns3:LX>
+            <ns3:AvgSpeed>2.1970369358913087</ns3:AvgSpeed>
+          </ns3:LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2012-05-10T20:02:14.000Z">
+        <TotalTimeSeconds>0.0</TotalTimeSeconds>
+        <DistanceMeters>1609.0</DistanceMeters>
+        <MaximumSpeed>7.6936407</MaximumSpeed>
+        <Calories>58</Calories>
+        <AverageHeartRateBpm>
+          <Value>143</Value>
+        </AverageHeartRateBpm>
+        <MaximumHeartRateBpm>
+          <Value>152</Value>
+        </MaximumHeartRateBpm>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Extensions>
+          <ns3:LX>
+            <ns3:AvgSpeed>2.6773828541001063</ns3:AvgSpeed>
+          </ns3:LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2012-05-10T20:13:14.000Z">
+        <TotalTimeSeconds>0.0</TotalTimeSeconds>
+        <DistanceMeters>1609.0</DistanceMeters>
+        <MaximumSpeed>5.5500212</MaximumSpeed>
+        <Calories>68</Calories>
+        <AverageHeartRateBpm>
+          <Value>149</Value>
+        </AverageHeartRateBpm>
+        <MaximumHeartRateBpm>
+          <Value>165</Value>
+        </MaximumHeartRateBpm>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Extensions>
+          <ns3:LX>
+            <ns3:AvgSpeed>2.984825436871591</ns3:AvgSpeed>
+          </ns3:LX>
+        </Extensions>
+      </Lap>
+      <Lap StartTime="2012-05-10T20:28:24.000Z">
+        <TotalTimeSeconds>0.0</TotalTimeSeconds>
+        <DistanceMeters>1089.27</DistanceMeters>
+        <MaximumSpeed>7.5937486</MaximumSpeed>
+        <Calories>35</Calories>
+        <AverageHeartRateBpm>
+          <Value>123</Value>
+        </AverageHeartRateBpm>
+        <MaximumHeartRateBpm>
+          <Value>134</Value>
+        </MaximumHeartRateBpm>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Extensions>
+          <ns3:LX>
+            <ns3:AvgSpeed>5.03197884649143</ns3:AvgSpeed>
+          </ns3:LX>
+        </Extensions>
+      </Lap>
+      <Creator xsi:type="Device_t">
+        <Name>Garmin Forerunner 305</Name>
+        <UnitId>3391501467</UnitId>
+        <ProductID>484</ProductID>
+        <Version>
+          <VersionMajor>2</VersionMajor>
+          <VersionMinor>90</VersionMinor>
+          <BuildMajor>0</BuildMajor>
+          <BuildMinor>0</BuildMinor>
+        </Version>
+      </Creator>
+    </Activity>
+  </Activities>
+  <Author xsi:type="Application_t">
+    <Name>Connect Api</Name>
+    <Build>
+      <Version>
+        <VersionMajor>0</VersionMajor>
+        <VersionMinor>0</VersionMinor>
+        <BuildMajor>0</BuildMajor>
+        <BuildMinor>0</BuildMinor>
+      </Version>
+    </Build>
+    <LangID>en</LangID>
+    <PartNumber>006-D2449-00</PartNumber>
+  </Author>
+</TrainingCenterDatabase>
