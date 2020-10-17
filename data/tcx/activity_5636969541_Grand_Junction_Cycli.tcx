@@ -26,13 +26,13 @@
           <Trackpoint>
             <Time>2020-10-05T17:43:07.000Z</Time>
             <Position>
-              <LatitudeDegrees>39.07227901741862</LatitudeDegrees>
+              <LatitudeDegrees>39.lo07227901741862</LatitudeDegrees>
               <LongitudeDegrees>-108.558548418805</LongitudeDegrees>
             </Position>
             <AltitudeMeters>1400.800048828125</AltitudeMeters>
             <DistanceMeters>0.0</DistanceMeters>
             <HeartRateBpm>
-              <Value>84</Value>
+              <Value>84</Value>tr
             </HeartRateBpm>
             <Extensions>
               <ns3:TPX>
