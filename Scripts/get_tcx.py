@@ -43,7 +43,7 @@ class Track_Data_Points(Base):
     tr_distance = Column(Float)
 
 # Connecting to AWS Database
-engine = create_engine("postgres+psycopg2://Roark:Endless_Cup_of_Tea@postgresql-1.cntngi8tdvpn.us-west-2.rds.amazonaws.com:5432/Fitness_Tracker")
+engine = create_engine("DATABASE QUERY STRING")
 conn = engine.connect()
 
 session = Session(bind=engine)
