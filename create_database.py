@@ -16,6 +16,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from sqlalchemy.schema import ForeignKey
 import psycopg2
+import tcxparser
 
 Base = declarative_base()
 
@@ -43,13 +44,11 @@ class Track_Data_Points(Base):
     tr_distance = Column(Float)
 
 
-engine = create_engine(DB PATH STRING)
+engine = create_engine("DB PATH STRING")
 conn = engine.connect()
 
 session = Session(bind=engine)
 
-import os
-import tcxparser
 trackpoint_id = 1
 count=1
 for subdir, dirs, files in os.walk("/Users/loganbon/Documents/GitHub/Projects/School-Projects/Digital-Workout-Tracker/Digital-Workout-Tracker/data/tcx"):
