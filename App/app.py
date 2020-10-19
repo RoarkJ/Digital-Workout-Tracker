@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import create_engine
 
 # Create engine using the `demographics.sqlite` database file
-engine = create_engine("DB Connection String")
+engine = create_engine("postgres+psycopg2://postgres:Lacrosse23$@LocalHost:4218/digital_workout_tracker")
 # Declare a Base using `automap_base()`
 Base = automap_base()
 # Use the Base class to reflect the database tables
@@ -18,6 +18,8 @@ session = Session(engine)
 
 # initiate app
 app = Flask(__name__)
+
+all_datapoints = session.query(Activities, Trackpoints).filter(Activities.act_id == Trackpoints.act_id).all()
 
 # define routes
 @app.route("/")
@@ -84,6 +86,16 @@ def all_data(activity_id):
         }
         all_data.append(data)
     return jsonify(all_data)
+
+@app.route("/activity_numbers")
+def get_unique_ids():
+    ids = []
+    for record in all_datapoints:
+        (activities, trackpoints) = record
+        act_id = trackpoints.act_id
+        if act_id not in ids:
+            ids.append(act_id)
+    return jsonify(ids)
 
 if __name__ == "__main__":
     app.run(debug=True)
