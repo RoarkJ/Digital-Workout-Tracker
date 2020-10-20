@@ -29,6 +29,7 @@ var gomap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/
 var map = L.map('map-id')
     .addLayer(gomap)
     .setView([39.51, -106.0461143], 12);
+    // .viewreset(reset());
 
 // Add our tile layer to the map
 // gomap.addTo(map);
@@ -49,7 +50,7 @@ d3.json("../../data/test2.geojson").then(collection => {
     return d.properties.Distance > 0
     // return d.properties.Time != null
   })
-  console.log(collection)
+  // console.log(collection)
 
   // Do stuff here
   // the latitude and longitude coordinates will need to be transformed
@@ -92,7 +93,7 @@ d3.json("../../data/test2.geojson").then(collection => {
 
   // This will be our traveling circle
   var marker = g.append("circle")
-  .attr("r", 10)
+  .attr("r", 8)
   .attr("id", "marker")
   .attr("class", "travelMarker");
 
@@ -110,7 +111,7 @@ d3.json("../../data/test2.geojson").then(collection => {
   // I want the origin and destination to look different
   var origin = [features[0]]
 
-  var begend = g.selectAll(".points")
+  var begin = g.selectAll(".points")
   .data(origin)
   .enter()
   .append("circle", ".points")
@@ -127,8 +128,14 @@ d3.json("../../data/test2.geojson").then(collection => {
     .attr('y', function(d) {
         return -10
     })
+    .attr('x', function(d) {
+      return -5
+  })
   // Add our items to the actual map (and account for zooming)
-  map.on("viewreset", reset); 
+  map.on("viewreset", reset());
+  // map.on('viewreset', function(reset) {
+  //   console.log('viewreset');
+  // });
 
   reset();
   transition();
@@ -138,6 +145,7 @@ d3.json("../../data/test2.geojson").then(collection => {
     var bounds = d3path.bounds(collection),
         topLeft = bounds[0],
         bottomRight = bounds[1];
+    console.log(bounds)
     
     text.attr("transform",
     function(d) {
@@ -146,7 +154,7 @@ d3.json("../../data/test2.geojson").then(collection => {
             applyLatLngToLayer(d).y + ")";
     });
 
-    begend.attr("transform",
+    begin.attr("transform",
         function(d) {
             return "translate(" +
                 applyLatLngToLayer(d).x + "," +
@@ -170,8 +178,8 @@ d3.json("../../data/test2.geojson").then(collection => {
             map.latLngToLayerPoint(new L.LatLng(y, x)).y + ")";
     });
     
-    svg.attr("width", bottomRight[0] - topLeft[0] + 120)
-        .attr("height", bottomRight[1] - topLeft[1] + 120)
+    svg.attr("width", bottomRight[0] - topLeft[0] + 60)
+        .attr("height", bottomRight[1] - topLeft[1] + 60)
         .style("left", topLeft[0] - 50 + "px")
         .style("top", topLeft[1] - 50 + "px");
 
@@ -181,12 +189,12 @@ d3.json("../../data/test2.geojson").then(collection => {
   
   function transition() {
     linePath.transition()
-        .duration(7500)
+        .duration(15000)
         .attrTween("stroke-dasharray", tweenDash)
-        .each("end", function() {
-            d3.select(this).call(transition);// infinite loop
-            ptFeatures.style("opacity", 0)
-        });
+        // .each("end", function() {
+        //     d3.select(this).call(transition);// infinite loop
+        //     ptFeatures.style("opacity", .25)
+        // });
   }
 
   function tweenDash() {
@@ -206,6 +214,7 @@ d3.json("../../data/test2.geojson").then(collection => {
         // total line length, though is only 500 to begin with this
         // essentially says give me a line of 250px followed by a gap
         // of 250px.
+        // interpolate = d3.interpolateString("0," + l, l + "," + l);
         interpolate = d3.interpolateString("0," + l, l + "," + l);
         //t is fraction of time 0-1 since transition began
         var marker = d3.select("#marker");
@@ -217,7 +226,7 @@ d3.json("../../data/test2.geojson").then(collection => {
 
         //Move the marker to that point
         marker.attr("transform", "translate(" + p.x + "," + p.y + ")"); //move marker
-        console.log(interpolate(t))
+        // console.log(interpolate(t))
         return interpolate(t);
     }
   } //end tweenDash
