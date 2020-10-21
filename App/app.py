@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import create_engine
 
 # Create engine using the `demographics.sqlite` database file
-engine = create_engine("Connection String")
+engine = create_engine("postgres+psycopg2://Roark:Endless_Cup_of_Tea@postgresql-1.cntngi8tdvpn.us-west-2.rds.amazonaws.com:5432/Fitness_Tracker")
 # Declare a Base using `automap_base()`
 Base = automap_base()
 # Use the Base class to reflect the database tables
