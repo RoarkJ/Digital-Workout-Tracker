@@ -25,17 +25,33 @@ var gomap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/
   // var mapboxTiles = L.tileLayer('https://{s}.tiles.mapbox.com/v3/examples.map-zr0njcqy/{z}/{x}/{y}.png', {
   //     attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>'
   // });
+// var latC = 0
+// var lonC = 0
 
-var map = L.map('map-id')
-    .addLayer(gomap)
-    .setView([39.51, -106.0461143], 12);
-    // .viewreset(reset());
+// d3.json("../../data/test3.json").then(features => {
+  // for (var i = 0; i < coordinates.length; i++) {
+  //   console.log(arr[i]);
+  // }
+//   latC = d3.median(features.map(latlist => latlist.latitude))
+//   lonC = d3.median(features.map(lonlist => lonlist.longitude))
+//   console.log(`lat: ${latC}`)
+//   console.log(`lon: ${lonC}`)
+// });
 
-// Add our tile layer to the map
-// gomap.addTo(map);
+// console.log(`lat: ${latC}`)
+// console.log(`lon: ${lonC}`)
 
-var svg = d3.select(map.getPanes().overlayPane).append("svg");
-var g = svg.append("g").attr("class", "leaflet-zoom-hide");
+// var map = L.map('map-id')
+//     .addLayer(gomap)
+//     .setView([39.392, -107.3399], 12);
+//     // .setView([latC, lonC], 12);
+//     // .viewreset(reset());
+
+// // Add our tile layer to the map
+// // gomap.addTo(map);
+
+// var svg = d3.select(map.getPanes().overlayPane).append("svg");
+// var g = svg.append("g").attr("class", "leaflet-zoom-hide");
 
 // var features = []
 
@@ -44,15 +60,40 @@ var g = svg.append("g").attr("class", "leaflet-zoom-hide");
 // });
 
 // d3.json("../../data/test2.geojson", function(collection) {
-d3.json("../../data/test2.geojson").then(collection => {
+// d3.json("../../data/test2.geojson").then(collection => {
+d3.json("../../data/test3.json").then(features => {
+  
+  latC = d3.median(features.map(latlist => latlist.latitude))
+  lonC = d3.median(features.map(lonlist => lonlist.longitude))
+  console.log(`lat: ${latC}`)
+  console.log(`lon: ${lonC}`)
+  
+  var map = L.map('map-id')
+    .addLayer(gomap)
+    .setView([latC, lonC], 12);
 
-  var features = collection.features.filter(function(d) {
-    return d.properties.Distance > 0
-    
-    // return d.properties.Time != null
-  })
+  var svg = d3.select(map.getPanes().overlayPane).append("svg");
+  var g = svg.append("g").attr("class", "leaflet-zoom-hide");
+
+  // var geo = {coordinates: [lon, lat, alt]}
+  var geog = []
+  for (var i = 0; i < features.length; i++) {
+      geog.push({
+        Coordinates: [(features[i].longitude), (features[i].latitude), (features[i].altitude)]
+      })
+    };
+  console.log(geog)
   console.log(features)
+
+  // console.log(features[(features.length/2)].latitude)
+  // console.log(features[(features.length/2)].longitude)
+  // var latlist = features.map(latlist => latlist.latitude)
+  // console.log(d3.median(latlist))
+  // console.log(d3.max(latlist))
+  // console.log(d3.min(latlist))
   // console.log(collection)
+  // var latCenter = (features.length/2)
+  
 
   // Do stuff here
   // the latitude and longitude coordinates will need to be transformed
@@ -111,7 +152,7 @@ d3.json("../../data/test2.geojson").then(collection => {
   // .style("opacity", 0);
 
   // I want the origin and destination to look different
-  var origin = [features[0]]
+  var origin = [geog[0]]
 
   var begin = g.selectAll(".points")
   .data(origin)
@@ -144,7 +185,7 @@ d3.json("../../data/test2.geojson").then(collection => {
 
   // reset the SVG elements if the user repositions the map
   function reset() {
-    var bounds = d3path.bounds(collection),
+    var bounds = d3path.bounds(features),
         topLeft = bounds[0],
         bottomRight = bounds[1];
     console.log(bounds)
@@ -173,8 +214,8 @@ d3.json("../../data/test2.geojson").then(collection => {
     
     marker.attr("transform",
     function() {
-        var y = features[0].geometry.coordinates[1]
-        var x = features[0].geometry.coordinates[0]
+        var y = features.latitude
+        var x = features.longitude
         return "translate(" +
             map.latLngToLayerPoint(new L.LatLng(y, x)).x + "," +
             map.latLngToLayerPoint(new L.LatLng(y, x)).y + ")";
@@ -188,7 +229,7 @@ d3.json("../../data/test2.geojson").then(collection => {
     // linePath.attr("d", d3path);
     linePath.attr("d", toLine);
     g.attr("transform", "translate(" + (-topLeft[0] + 50) + "," + (-topLeft[1] + 50) + ")");
-  }
+  };
   
   function transition() {
     linePath.transition()
@@ -237,10 +278,19 @@ d3.json("../../data/test2.geojson").then(collection => {
     var point = map.latLngToLayerPoint(new L.LatLng(y, x));
     this.stream.point(point.x, point.y);
   } //end projectPoint
+  function applyLatLngToLayer(d) {
+    // var y = d.geometry.coordinates[1]
+    // var x = d.geometry.coordinates[0]
+    var y = d.latitude
+    var x = d.longitude
+    return map.latLngToLayerPoint(new L.LatLng(y, x))
+  }
 });
 
-function applyLatLngToLayer(d) {
-  var y = d.geometry.coordinates[1]
-  var x = d.geometry.coordinates[0]
-  return map.latLngToLayerPoint(new L.LatLng(y, x))
-}
+// function applyLatLngToLayer(d) {
+//   // var y = d.geometry.coordinates[1]
+//   // var x = d.geometry.coordinates[0]
+//   var y = d.latitude
+//   var x = d.longitude
+//   return map.latLngToLayerPoint(new L.LatLng(y, x))
+// }
