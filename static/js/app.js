@@ -257,7 +257,7 @@ var traceGuage = [
               { range: [7, 8], color: "red" },
               { range: [8, 9], color: "red" },
               { range: [9, 10], color: "darkred" }
-          ],
+          ]
       }
   }
 ];
