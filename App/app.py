@@ -19,7 +19,7 @@ session = Session(engine)
 # initiate app
 app = Flask(__name__)
 
-all_datapoints = session.query(Activities, Trackpoints).filter(Activities.act_id == Trackpoints.act_id).all()
+all_datapoints = session.query(Activities.act_id, Trackpoints.act_id).filter(Activities.act_id == Trackpoints.act_id).all()
 
 # define routes
 @app.route("/")
@@ -91,10 +91,9 @@ def all_data(activity_id):
 def get_unique_ids():
     ids = []
     for record in all_datapoints:
-        (activities, trackpoints) = record
-        act_id = trackpoints.act_id
-        if act_id not in ids:
-            ids.append(act_id)
+        (activity_act_id, trackpoint_act_id) = record
+        if trackpoint_act_id not in ids:
+            ids.append(trackpoint_act_id)
     return jsonify(ids)
 
 if __name__ == "__main__":
