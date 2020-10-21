@@ -48,8 +48,10 @@ d3.json("../../data/test2.geojson").then(collection => {
 
   var features = collection.features.filter(function(d) {
     return d.properties.Distance > 0
+    
     // return d.properties.Time != null
   })
+  console.log(features)
   // console.log(collection)
 
   // Do stuff here
@@ -98,15 +100,15 @@ d3.json("../../data/test2.geojson").then(collection => {
   .attr("class", "travelMarker");
 
   // if you want the actual points change opacity
-  var ptFeatures = g.selectAll("circle")
-  .data(features)
-  .enter()
-  .append("circle")
-  .attr("r", 3)
-  .attr("class", "waypoints")
-  // .attr("class", function(d){
-  //     return "waypoints " + "c" + d.properties.time})      
-  .style("opacity", 0);
+  // var ptFeatures = g.selectAll("circle")
+  // .data(features)
+  // .enter()
+  // .append("circle")
+  // .attr("r", 3)
+  // .attr("class", "waypoints")
+  // // .attr("class", function(d){
+  // //     return "waypoints " + "c" + d.properties.time})      
+  // .style("opacity", 0);
 
   // I want the origin and destination to look different
   var origin = [features[0]]
@@ -137,7 +139,7 @@ d3.json("../../data/test2.geojson").then(collection => {
   //   console.log('viewreset');
   // });
 
-  reset();
+  // reset();
   transition();
 
   // reset the SVG elements if the user repositions the map
@@ -162,12 +164,12 @@ d3.json("../../data/test2.geojson").then(collection => {
         }
     );
 
-    ptFeatures.attr("transform",
-        function(d) {
-            return "translate(" +
-                applyLatLngToLayer(d).x + "," +
-                applyLatLngToLayer(d).y + ")";
-        });
+    // ptFeatures.attr("transform",
+    //     function(d) {
+    //         return "translate(" +
+    //             applyLatLngToLayer(d).x + "," +
+    //             applyLatLngToLayer(d).y + ")";
+    //     });
     
     marker.attr("transform",
     function() {
@@ -178,12 +180,13 @@ d3.json("../../data/test2.geojson").then(collection => {
             map.latLngToLayerPoint(new L.LatLng(y, x)).y + ")";
     });
     
-    svg.attr("width", bottomRight[0] - topLeft[0] + 60)
-        .attr("height", bottomRight[1] - topLeft[1] + 60)
+    svg.attr("width", bottomRight[0] - topLeft[0] + 120)
+        .attr("height", bottomRight[1] - topLeft[1] + 120)
         .style("left", topLeft[0] - 50 + "px")
         .style("top", topLeft[1] - 50 + "px");
 
-    linePath.attr("d", toLine)
+    // linePath.attr("d", d3path);
+    linePath.attr("d", toLine);
     g.attr("transform", "translate(" + (-topLeft[0] + 50) + "," + (-topLeft[1] + 50) + ")");
   }
   
