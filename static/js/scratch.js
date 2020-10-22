@@ -16,18 +16,6 @@ var gomap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/
   accessToken: API_KEY
 });
 
-var map = L.map('map-id')
-.addLayer(gomap)
-.setView([39.392, -107.3399], 14);
-
-var svg = d3.select(map.getPanes().overlayPane).append("svg");
-var g = svg.append("g").attr("class", "leaflet-zoom-hide");
-
-// the latitude and longitude coordinates will need to be transformed
-var transform = d3.geoTransform({point: projectPoint});
-
-var d3path = d3.geoPath().projection(transform);
-
 d3.json("../../data/test3.json").then(data => {
     // Convert json object to geoJson
     var geojson = {
@@ -63,30 +51,23 @@ d3.json("../../data/test3.json").then(data => {
     console.log(`lat: ${latC}`)
     console.log(`lon: ${lonC}`)
 
-    // var map = L.map('map-id')
-    // .addLayer(gomap)
-    // .setView([latC, lonC], 14);
+    var map = L.map('map-id')
+    .addLayer(gomap)
+    .setView([latC, lonC], 14);
 
-    // var svg = d3.select(map.getPanes().overlayPane).append("svg");
-    // var g = svg.append("g").attr("class", "leaflet-zoom-hide");
+    var svg = d3.select(map.getPanes().overlayPane).append("svg");
+    var g = svg.append("g").attr("class", "leaflet-zoom-hide");
 
-    // // the latitude and longitude coordinates will need to be transformed
-    // var transform = d3.geoTransform({point: projectPoint});
-    
-    // var d3path = d3.geoPath().projection(transform);
+    // the latitude and longitude coordinates will need to be transformed
+    var transform = d3.geoTransform({point: projectPoint});
+
+    var d3path = d3.geoPath().projection(transform);
 
     // function to convert our points to a line
     const toLine = d3.line().curve(d3.curveLinear)
         .x((d) => applyLatLngToLayer(d).x)
         .y((d) => applyLatLngToLayer(d).y);
-    // function applyLatLngToLayer(geojson) {
-    //     console.log(`D= ${geojson}`)
-    //     var y = geojson.geometry.coordinates[1]
-    //     var x = geojson.geometry.coordinates[0]
-    //     return map.latLngToLayerPoint(new L.LatLng(y, x))
-    // }
-    // console.log(features[0])
-    // console.log(geojson.features[0])
+    
     // adding the path itself (as a line), the traveling circle, the points themselves
     var ptFeatures = g.selectAll("circle")
         .data(geojson)
@@ -121,16 +102,9 @@ d3.json("../../data/test3.json").then(data => {
 
     begin
       .append("circle", )
-      .attr("r", 3)
-      .style("fill", "red")
+      .attr("r", 6)
+      .style("fill", "green")
       .style("opacity", "1");
-    // var begin = g.selectAll(".points")
-    //     .data(origin)
-    //     .enter()
-    //     .append("circle", ".points")
-    //     .attr("r", 5)
-    //     .style("fill", "green")
-    //     .style("opacity", "1");
 
     var text = g.selectAll('text')
         .data(origin)
@@ -182,28 +156,6 @@ d3.json("../../data/test3.json").then(data => {
         g.attr("transform", "translate(" + (-topLeft[0] + 50) + "," + (-topLeft[1] + 50) + ")");
   
     } // end reset
-    // function reset() {
-    //     var bounds = d3path.bounds(geojson),
-    //         topLeft = bounds[0],
-    //         bottomRight = bounds[1];
-    //         // console.log(bounds)
-
-    //     begin.attr("transform", function(d) {
-    //         return "translate(" +
-    //             applyLatLngToLayer(d).x + "," +
-    //             applyLatLngToLayer(d).y + ")";
-    //     });
-
-    //     svg.attr("width", bottomRight[0] - topLeft[0] + 120)
-    //     .attr("height", bottomRight[1] - topLeft[1] + 120)
-    //     .style("left", topLeft[0] - 50 + "px")
-    //     .style("top", topLeft[1] - 50 + "px");
-
-    //     linePath.attr("d", d3path);
-    //     // linePath.attr("d", toLine);
-        
-    //     g.attr("transform", "translate(" + (-topLeft[0] + 50) + "," + (-topLeft[1] + 50) + ")");
-    // };
 
     function transition() {
         linePath.transition()
@@ -231,7 +183,63 @@ d3.json("../../data/test3.json").then(data => {
             return interpolate(t);
         }
       } //end tweenDash
-    // function applyLatLngToLayer(d) {
+    
+    function projectPoint(x, y) {
+        var point = map.latLngToLayerPoint(new L.LatLng(y, x));
+        this.stream.point(point.x, point.y);
+    };
+    
+    function applyLatLngToLayer(d) {
+        return map.latLngToLayerPoint(
+                new L.LatLng(d.geometry.coordinates[1], d.geometry.coordinates[0]));
+    };
+});
+
+// ---------------------------------------------
+// function applyLatLngToLayer(geojson) {
+    //     console.log(`D= ${geojson}`)
+    //     var y = geojson.geometry.coordinates[1]
+    //     var x = geojson.geometry.coordinates[0]
+    //     return map.latLngToLayerPoint(new L.LatLng(y, x))
+    // }
+    // console.log(features[0])
+    // console.log(geojson.features[0])
+
+// ---------------------------------------------
+// var begin = g.selectAll(".points")
+    //     .data(origin)
+    //     .enter()
+    //     .append("circle", ".points")
+    //     .attr("r", 5)
+    //     .style("fill", "green")
+    //     .style("opacity", "1");
+
+// ---------------------------------------------
+// function reset() {
+    //     var bounds = d3path.bounds(geojson),
+    //         topLeft = bounds[0],
+    //         bottomRight = bounds[1];
+    //         // console.log(bounds)
+
+    //     begin.attr("transform", function(d) {
+    //         return "translate(" +
+    //             applyLatLngToLayer(d).x + "," +
+    //             applyLatLngToLayer(d).y + ")";
+    //     });
+
+    //     svg.attr("width", bottomRight[0] - topLeft[0] + 120)
+    //     .attr("height", bottomRight[1] - topLeft[1] + 120)
+    //     .style("left", topLeft[0] - 50 + "px")
+    //     .style("top", topLeft[1] - 50 + "px");
+
+    //     linePath.attr("d", d3path);
+    //     // linePath.attr("d", toLine);
+        
+    //     g.attr("transform", "translate(" + (-topLeft[0] + 50) + "," + (-topLeft[1] + 50) + ")");
+    // };
+
+// ---------------------------------------------
+// function applyLatLngToLayer(d) {
     //     var y = d.geometry.coordinates[1]
     //     var x = d.geometry.coordinates[0]
     //     return map.latLngToLayerPoint(new L.LatLng(y, x))
@@ -256,16 +264,6 @@ d3.json("../../data/test3.json").then(data => {
     // function projectPoint(x, y) {
     // var point = map.latLngToLayerPoint(new L.LatLng(y, x));
     // this.stream.point(point.x, point.y);} 
-    //end projectPoint
-    
-});
+    //end projectPoint 
 
-function projectPoint(x, y) {
-    var point = map.latLngToLayerPoint(new L.LatLng(y, x));
-    this.stream.point(point.x, point.y);
-};
-
-function applyLatLngToLayer(d) {
-    return map.latLngToLayerPoint(
-            new L.LatLng(d.geometry.coordinates[1], d.geometry.coordinates[0]));
-};
+// ---------------------------------------------
