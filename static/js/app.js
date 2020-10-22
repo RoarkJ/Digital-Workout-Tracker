@@ -66,6 +66,7 @@ var toLine = d3.line()
   .y(function(d) {
       return applyLatLngToLayer(d).y
   });
+  
 
 // function applyLatLngToLayer(d) {
 //     var y = d.geometry.coordinates[1]
@@ -80,6 +81,7 @@ var linePath = g.selectAll(".lineConnect")
 .enter()
 .append("path")
 .attr("class", "lineConnect");
+console.log(linePath)
 
 // This will be our traveling circle
 var marker = g.append("circle")
@@ -191,7 +193,7 @@ function tweenDash() {
   return function(t) {
       //total length of path (single value)
       var l = linePath.node().getTotalLength(); 
-      console.log(l)
+      // console.log(l)
       // this is creating a function called interpolate which takes
       // as input a single value 0-1. The function will interpolate
       // between the numbers embedded in a string. An example might
