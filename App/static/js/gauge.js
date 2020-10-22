@@ -1,7 +1,7 @@
 var gauges = []
 document.addEventListener("DOMContentLoaded", function (event) {
     var opt = {
-        gaugeRadius: 160,
+        gaugeRadius: 140,
         minVal: 0,
         maxVal: 100,
         needleVal: Math.round(30),
@@ -13,3 +13,4 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     gauges[0] = new drawGauge(opt);
 })
+
