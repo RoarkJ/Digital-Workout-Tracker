@@ -39,6 +39,7 @@ d3.json("../../data/test3.json").then(data => {
             });
         }
     // console.log(geojson.features[0].properties.id)
+    console.log(data)
     var features = geojson.features.filter(function(d) {
         return d.properties.id >= 0
     });
@@ -166,8 +167,8 @@ d3.json("../../data/test3.json").then(data => {
         .style("left", topLeft[0] - 50 + "px")
         .style("top", topLeft[1] - 50 + "px");
 
-    // linePath.attr("d", d3path);
-    linePath.attr("d", toLine);
+    linePath.attr("d", d3path);
+    // linePath.attr("d", toLine);
     
     g.attr("transform", "translate(" + (-topLeft[0] + 50) + "," + (-topLeft[1] + 50) + ")");
     };
