@@ -37,23 +37,22 @@ d3.json("../../data/test3.json").then(data => {
             "HeartRate": data[i].hrt_rate,
             }
             });
-    
         }
-    // console.log(geojson)
-    var featuresdata = geojson.features.filter(function(d) {
-        return d.properties.time >= 0
+    // console.log(geojson.features[0].properties.id)
+    var features = geojson.features.filter(function(d) {
+        return d.properties.id >= 0
     });
-    console.log(featuresdata)
+    // console.log(features)
 
     // calculate center of map and add map layer
     latC = d3.median(data.map(latlist => latlist.latitude))
     lonC = d3.median(data.map(lonlist => lonlist.longitude))
-    console.log(`lat: ${latC}`)
-    console.log(`lon: ${lonC}`)
+    // console.log(`lat: ${latC}`)
+    // console.log(`lon: ${lonC}`)
 
     var map = L.map('map-id')
     .addLayer(gomap)
-    .setView([latC, lonC], 12);
+    .setView([latC, lonC], 14);
 
     var svg = d3.select(map.getPanes().overlayPane).append("svg");
     var g = svg.append("g").attr("class", "leaflet-zoom-hide");
@@ -63,6 +62,7 @@ d3.json("../../data/test3.json").then(data => {
         point: projectPoint
       })
     var d3path = d3.geoPath().projection(transform);
+
     function projectPoint(x, y) {
         var point = map.latLngToLayerPoint(new L.LatLng(y, x));
         this.stream.point(point.x, point.y);
@@ -70,13 +70,13 @@ d3.json("../../data/test3.json").then(data => {
 
     // function to convert our points to a line
     var toLine = d3.line()
-    // .interpolate("linear")
-    .curve(d3.curveLinear)
-    .x(function(geojson) {
-        return applyLatLngToLayer(geojson).x
-    })
-    .y(function(geojson) {
-        return applyLatLngToLayer(geojson).y
+        // .interpolate("linear")
+        .curve(d3.curveLinear)
+        .x(function(d) {
+            return applyLatLngToLayer(d).x
+        })
+        .y(function(d) {
+            return applyLatLngToLayer(d).y
     });
     // function applyLatLngToLayer(geojson) {
     //     console.log(`D= ${geojson}`)
@@ -84,7 +84,8 @@ d3.json("../../data/test3.json").then(data => {
     //     var x = geojson.geometry.coordinates[0]
     //     return map.latLngToLayerPoint(new L.LatLng(y, x))
     // }
-
+    // console.log(features[0])
+    // console.log(geojson.features[0])
     // adding the path itself (as a line), the traveling circle, the points themselves
     // here is the line between points
     var linePath = g.selectAll(".lineConnect")
@@ -99,8 +100,9 @@ d3.json("../../data/test3.json").then(data => {
         .attr("id", "marker")
         .attr("class", "travelMarker");
 
-    var origin = [geojson[0]]
-    console.log(`origin = ${origin}`)
+    var origin = [geojson.features[0]]
+
+    // console.log(`origin = ${origin}`)
 
     var begin = g.selectAll(".points")
         .data(origin)
@@ -123,8 +125,8 @@ d3.json("../../data/test3.json").then(data => {
         return -5
     })
     // Add our items to the actual map (and account for zooming)
-    map.on("viewreset", reset());
-
+    map.on("viewreset", reset);
+    reset();
     transition();
 
     // reset the SVG elements if the user repositions the map
@@ -132,32 +134,72 @@ d3.json("../../data/test3.json").then(data => {
     var bounds = d3path.bounds(geojson),
         topLeft = bounds[0],
         bottomRight = bounds[1];
-        console.log(bounds)
-        text.attr("transform", function(d) {
+    console.log(bounds)
+
+    function applyLatLngToLayer(d) {
+        var y = d.geometry.coordinates[1]
+        var x = d.geometry.coordinates[0]
+        return map.latLngToLayerPoint(new L.LatLng(y, x))
+    };
+
+    text.attr("transform", function(d) {
+    return "translate(" +
+        applyLatLngToLayer(d).x + "," +
+        applyLatLngToLayer(d).y + ")";
+    });
+    begin.attr("transform", function(d) {
         return "translate(" +
             applyLatLngToLayer(d).x + "," +
             applyLatLngToLayer(d).y + ")";
-        });
-        begin.attr("transform", function(d) {
-            return "translate(" +
-                applyLatLngToLayer(d).x + "," +
-                applyLatLngToLayer(d).y + ")";
-        });
-        marker.attr("transform", function() {
-        var y = features.latitude
-        var x = features.longitude
-        return "translate(" +
-            map.latLngToLayerPoint(new L.LatLng(y, x)).x + "," +
-            map.latLngToLayerPoint(new L.LatLng(y, x)).y + ")";
-        });
-    
-        svg.attr("width", bottomRight[0] - topLeft[0] + 120)
-            .attr("height", bottomRight[1] - topLeft[1] + 120)
-            .style("left", topLeft[0] - 50 + "px")
-            .style("top", topLeft[1] - 50 + "px");
+    });
 
-        // linePath.attr("d", d3path);
-        linePath.attr("d", toLine);
-        g.attr("transform", "translate(" + (-topLeft[0] + 50) + "," + (-topLeft[1] + 50) + ")");
-  };
+    marker.attr("transform", function() {
+    var y = features[0].geometry.coordinates[1]
+    var x = features[0].geometry.coordinates[0]
+    return "translate(" +
+        map.latLngToLayerPoint(new L.LatLng(y, x)).x + "," +
+        map.latLngToLayerPoint(new L.LatLng(y, x)).y + ")";
+    });
+
+    svg.attr("width", bottomRight[0] - topLeft[0] + 120)
+        .attr("height", bottomRight[1] - topLeft[1] + 120)
+        .style("left", topLeft[0] - 50 + "px")
+        .style("top", topLeft[1] - 50 + "px");
+
+    // linePath.attr("d", d3path);
+    linePath.attr("d", toLine);
+    
+    g.attr("transform", "translate(" + (-topLeft[0] + 50) + "," + (-topLeft[1] + 50) + ")");
+    };
+
+    function transition() {
+        linePath.transition()
+            .duration(15000)
+            .attrTween("stroke-dasharray", tweenDash)
+    }
+    function tweenDash() {
+        return function(t) {
+            //total length of path (single value)
+            var l = linePath.node().getTotalLength();
+            // console.log(l)
+            interpolate = d3.interpolateString("0," + l, l + "," + l);
+            //t is fraction of time 0-1 since transition began
+            var marker = d3.select("#marker");
+          
+            // p is the point on the line (coordinates) at a given length
+            // along the line. In this case if l=50 and we're midway through
+            // the time then this would 25.
+            var p = linePath.node().getPointAtLength(t * l);
+      
+            //Move the marker to that point
+            marker.attr("transform", "translate(" + p.x + "," + p.y + ")"); //move marker
+            // console.log(interpolate(t))
+            return interpolate(t);
+        }
+      } //end tweenDash
+    function projectPoint(x, y) {
+    var point = map.latLngToLayerPoint(new L.LatLng(y, x));
+    this.stream.point(point.x, point.y);
+    } //end projectPoint
+    
 });

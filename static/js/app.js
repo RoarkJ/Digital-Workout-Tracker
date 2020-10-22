@@ -16,16 +16,6 @@ id: "light-v10",
 accessToken: API_KEY
 });
 
-// Create the map with our layers
-// var map = L.map("map-id", {
-//     center: [39.47730306, -106.0461143],
-//     zoom: 12,})
-//     .addLayer;
-
-// var mapboxTiles = L.tileLayer('https://{s}.tiles.mapbox.com/v3/examples.map-zr0njcqy/{z}/{x}/{y}.png', {
-//     attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>'
-// });
-
 var map = L.map('map-id')
   .addLayer(gomap)
   .setView([39.51, -106.0461143], 12);
@@ -145,7 +135,7 @@ function reset() {
   var bounds = d3path.bounds(collection),
       topLeft = bounds[0],
       bottomRight = bounds[1];
-  console.log(bounds)
+    console.log(bounds)
 
   text.attr("transform",
   function(d) {
@@ -185,7 +175,7 @@ function reset() {
 
   linePath.attr("d", toLine)
   g.attr("transform", "translate(" + (-topLeft[0] + 50) + "," + (-topLeft[1] + 50) + ")");
-}
+};
 
 function transition() {
   linePath.transition()
@@ -201,7 +191,7 @@ function tweenDash() {
   return function(t) {
       //total length of path (single value)
       var l = linePath.node().getTotalLength(); 
-
+      console.log(l)
       // this is creating a function called interpolate which takes
       // as input a single value 0-1. The function will interpolate
       // between the numbers embedded in a string. An example might
@@ -223,7 +213,7 @@ function tweenDash() {
       // along the line. In this case if l=50 and we're midway through
       // the time then this would 25.
       var p = linePath.node().getPointAtLength(t * l);
-
+      // console.log(p)
       //Move the marker to that point
       marker.attr("transform", "translate(" + p.x + "," + p.y + ")"); //move marker
       // console.log(interpolate(t))
@@ -273,3 +263,16 @@ var y = d.geometry.coordinates[1]
 var x = d.geometry.coordinates[0]
 return map.latLngToLayerPoint(new L.LatLng(y, x))
 }
+
+//***********************************//
+// Create the map with our layers
+// var map = L.map("map-id", {
+//     center: [39.47730306, -106.0461143],
+//     zoom: 12,})
+//     .addLayer;
+
+// var mapboxTiles = L.tileLayer('https://{s}.tiles.mapbox.com/v3/examples.map-zr0njcqy/{z}/{x}/{y}.png', {
+//     attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>'
+// });
+
+//***********************************//
