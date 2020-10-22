@@ -43,7 +43,7 @@ class Track_Data_Points(Base):
     tr_distance = Column(Float)
 
 # Connecting to AWS Database
-engine = create_engine("DATABASE QUERY STRING")
+engine = create_engine("postgres+psycopg2://Roark:Endless_Cup_of_Tea@postgresql-1.cntngi8tdvpn.us-west-2.rds.amazonaws.com:5432/Fitness_Tracker")
 conn = engine.connect()
 
 session = Session(bind=engine)
@@ -53,7 +53,7 @@ import tcxparser
 trackpoint_id = 1
 count=1
 # os.walk(Path to local files)
-for subdir, dirs, files in os.walk("/Users/loganbon/Documents/GitHub/Projects/School-Projects/Digital-Workout-Tracker/Digital-Workout-Tracker/data/tcx"):
+for subdir, dirs, files in os.walk("~/DU-Data-Analytics-BC/GitHub/project-visualization/Digital-Workout-Tracker/data/tcx"):
     for filename in files:
         filepath = subdir + os.sep + filename
         print(count)
