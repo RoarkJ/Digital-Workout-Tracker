@@ -32,12 +32,12 @@ function drawGauge(opt) {
 
     if (typeof opt.tickColMaj === 'undefined') { opt.tickColMaj = '#0099CC' }
     if (typeof opt.tickColMin === 'undefined') { opt.tickColMin = '#000' }
-    if (typeof opt.outerEdgeCol === 'undefined') { opt.outerEdgeCol = '#0099CC' }
+    if (typeof opt.outerEdgeCol === 'undefined') { opt.outerEdgeCol = '#000000' }
     if (typeof opt.pivotCol === 'undefined') { opt.pivotCol = '#999' }
-    if (typeof opt.innerCol === 'undefined') { opt.innerCol = '#fff' }
+    if (typeof opt.innerCol === 'undefined') { opt.innerCol = '#f7f7f9' }
     if (typeof opt.unitsLabelCol === 'undefined') { opt.unitsLabelCol = '#000' }
     if (typeof opt.tickLabelCol === 'undefined') { opt.tickLabelCol = '#000' }
-    if (typeof opt.needleCol === 'undefined') { opt.needleCol = '#0099CC' }
+    if (typeof opt.needleCol === 'undefined') { opt.needleCol = '#8B0000' }
 
     defaultFonts = '"Helvetica Neue", Helvetica, Arial, sans-serif'
     if (typeof opt.tickFont === 'undefined') { opt.tickFont = defaultFonts }
