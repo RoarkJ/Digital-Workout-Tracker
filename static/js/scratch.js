@@ -39,7 +39,7 @@ d3.json("../../data/test3.json").then(data => {
             });
         }
     // console.log(geojson.features[0].properties.id)
-    console.log(data)
+    // console.log(data)
     var features = geojson.features.filter(function(d) {
         return d.properties.id >= 0
     });
@@ -48,12 +48,12 @@ d3.json("../../data/test3.json").then(data => {
     // calculate center of map and add map layer
     latC = d3.median(data.map(latlist => latlist.latitude))
     lonC = d3.median(data.map(lonlist => lonlist.longitude))
-    console.log(`lat: ${latC}`)
-    console.log(`lon: ${lonC}`)
+    // console.log(`lat: ${latC}`)
+    // console.log(`lon: ${lonC}`)
 
     var map = L.map('map-id')
     .addLayer(gomap)
-    .setView([latC, lonC], 14);
+    .setView([latC, lonC], 13);
 
     var svg = d3.select(map.getPanes().overlayPane).append("svg");
     var g = svg.append("g").attr("class", "leaflet-zoom-hide");
@@ -82,7 +82,7 @@ d3.json("../../data/test3.json").then(data => {
         .enter()
         .append("path")
         .attr("class", "lineConnect");
-    console.log(linePath)
+    // console.log(linePath)
 
     // This will be our traveling circle
     var marker = g.append("circle")
@@ -119,7 +119,7 @@ d3.json("../../data/test3.json").then(data => {
         return -5
     })
     // when the user zooms in or out you need to reset the view
-    map.on("viewreset", reset);
+    map.on("zoom", reset);
     reset();
     transition();
 
@@ -136,6 +136,7 @@ d3.json("../../data/test3.json").then(data => {
         marker.attr("transform", function() {
               const coords = features[0].geometry.coordinates;
                           const pt = map.latLngToLayerPoint(new L.LatLng(coords[1], coords[0]));
+            console.log(coords)
               return "translate(" + pt.x + "," + pt.y + ")";
           });
 
