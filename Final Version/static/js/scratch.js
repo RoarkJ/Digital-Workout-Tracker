@@ -9,7 +9,7 @@ function dropDown(ids) {
     dropDown(ids);
   })
   
-  function buildTable(activityID) {
+function buildTable(activityID) {
     var table = d3.select("#activity-summary")
     d3.json(`http://127.0.0.1:5000/summary/${activityID}`).then((data) => {
         Object.entries(data).forEach(([key, value]) => {
@@ -38,12 +38,14 @@ function deleteCurrent() {
     d3.select("#activity-summary").selectAll("h5").remove();
     d3.select("#map").remove();
     d3.select("#mapping").append("div").attr("id", "map").style("height", "500px")
+    d3.select("#SVGbox-gaugeBox").remove();
 }
 
 function optionChanged(activityID) {
     deleteCurrent();
     buildTable(activityID);
     buildMap(activityID)
+    speedGauge(activityID);
     // moveGuage(activity_number);
 };
 
@@ -61,6 +63,43 @@ function optionChanged(activityID) {
 // }
 
 
+function speedGauge(selectedID) {
+    d3.json(`http://127.0.0.1:5000/geojson/${selectedID}`).then(data => {
+        // IDselected=ids.filter(id.activity_id=selectedID)
+        maxSpeed = d3.max(data.features.map(data => data.properties.speed));
+        maxSpeed = +maxSpeed
+        console.log(`Max Speed: ${maxSpeed}`);
+        var gauges = []
+        var opt = {
+            gaugeRadius: 140,
+            minVal: 0,
+            maxVal: 50,
+            needleVal: maxSpeed*2.24, 
+            //needleVal: Math.floor(Math.random() * 50) + 1 ,
+            tickSpaceMinVal: 2,
+            tickSpaceMajVal: 10,
+            divID: "gaugeBox",
+            gaugeUnits: "mph"
+        }
+        console.log(opt);
+        gauges[0] = new drawGauge(opt)
+        // document.addEventListener("DOMContentLoaded", function (event, maxSpeed) {
+        //     var opt = {
+        //         gaugeRadius: 140,
+        //         minVal: 0,
+        //         maxVal: 50,
+        //         needleVal: maxSpeed, 
+        //         //needleVal: Math.floor(Math.random() * 50) + 1 ,
+        //         tickSpaceMinVal: 2,
+        //         tickSpaceMajVal: 10,
+        //         divID: "gaugeBox",
+        //         gaugeUnits: "mph"
+        //     }
+        //     console.log(opt);
+        //     gauges[0] = new drawGauge(opt)
+        // });
+    });
+}
 
 
 
@@ -256,5 +295,5 @@ function buildMap(activity_number) {
 
 buildTable(1926552470);
 buildMap(1926552470);
+speedGauge(1926552470);
 // moveGuage(1926552470);
-
