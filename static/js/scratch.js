@@ -38,7 +38,7 @@ d3.json("../../data/test3.json").then(data => {
             }
             });
         }
-    // console.log(geojson.features[0].properties.id)
+    console.log(geojson.features[0].properties)
     // console.log(data)
     var features = geojson.features.filter(function(d) {
         return d.properties.id >= 0
@@ -50,18 +50,19 @@ d3.json("../../data/test3.json").then(data => {
     lonC = d3.median(data.map(lonlist => lonlist.longitude))
     // console.log(`lat: ${latC}`)
     // console.log(`lon: ${lonC}`)
+    var transform = d3.geoTransform({point: projectPoint});
+
+    var d3path = d3.geoPath().projection(transform);
 
     var map = L.map('map-id')
     .addLayer(gomap)
     .setView([latC, lonC], 13);
+    // map.fitBounds(d3path.bounds(geojson));
 
     var svg = d3.select(map.getPanes().overlayPane).append("svg");
     var g = svg.append("g").attr("class", "leaflet-zoom-hide");
 
     // the latitude and longitude coordinates will need to be transformed
-    var transform = d3.geoTransform({point: projectPoint});
-
-    var d3path = d3.geoPath().projection(transform);
 
     // function to convert our points to a line
     const toLine = d3.line().curve(d3.curveLinear)
@@ -120,6 +121,7 @@ d3.json("../../data/test3.json").then(data => {
     })
     // when the user zooms in or out you need to reset the view
     map.on("zoom", reset);
+    
     reset();
     transition();
 
@@ -128,6 +130,7 @@ d3.json("../../data/test3.json").then(data => {
         var bounds = d3path.bounds(geojson),
             topLeft = bounds[0],
             bottomRight = bounds[1];
+            // console.log(bounds)
   
         begin.attr("transform", d => 
             "translate(" + applyLatLngToLayer(d).x + "," + applyLatLngToLayer(d).y + ")");
@@ -136,7 +139,7 @@ d3.json("../../data/test3.json").then(data => {
         marker.attr("transform", function() {
               const coords = features[0].geometry.coordinates;
                           const pt = map.latLngToLayerPoint(new L.LatLng(coords[1], coords[0]));
-            console.log(coords)
+            // console.log(coords)
               return "translate(" + pt.x + "," + pt.y + ")";
           });
 
@@ -168,7 +171,7 @@ d3.json("../../data/test3.json").then(data => {
         return function(t) {
             //total length of path (single value)
             var l = linePath.node().getTotalLength();
-            console.log(l)
+            // console.log(l)
             interpolate = d3.interpolateString("0," + l, l + "," + l);
             //t is fraction of time 0-1 since transition began
             // var marker = d3.select("#marker");
@@ -194,6 +197,7 @@ d3.json("../../data/test3.json").then(data => {
         return map.latLngToLayerPoint(
                 new L.LatLng(d.geometry.coordinates[1], d.geometry.coordinates[0]));
     };
+    
 });
 
 // ---------------------------------------------
