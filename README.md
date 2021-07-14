@@ -5,4 +5,4 @@
 	  performance statistics.  We will leverage visualizations to enhance users understanding of their
 	  workout performance.  Heart rate and speed are examples of the type of data we will leverage.
 
-![map_with_route](initial_project_concept.rtfd/Screen Shot 2020-10-10 at 11.54.30 AM.png)
+![map_with_route](images/dashboard_image_example.png)
